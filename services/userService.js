@@ -28,4 +28,4 @@ function getAllUsers() {
     return users;
 }
 
-module.exports = { registerUser, loginUser, addFavorite, getAllUsers };
+module.exports = { registerUser, loginUser, addFavorite, getAllUsers, users };

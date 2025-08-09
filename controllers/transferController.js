@@ -9,7 +9,7 @@ router.post('/', (req, res) => {
         transferService.makeTransfer(from, to, amount);
         res.status(200).send('Transferência realizada com sucesso');
     } catch (error) {
-        res.status(400).send(error.message);
+        res.status(400).json({ error: error.message });
     }
 });
 
