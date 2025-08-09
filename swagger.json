@@ -1,0 +1,167 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "API Rest",
+    "description": "API para aprendizado de testes e automação a nível de API"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": ["http"],
+  "paths": {
+    "/users/register": {
+      "post": {
+        "summary": "Registrar um novo usuário",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Usuário registrado com sucesso"
+          },
+          "400": {
+            "description": "Erro na requisição"
+          }
+        }
+      }
+    },
+    "/users/login": {
+      "post": {
+        "summary": "Login de usuário",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Login"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Login realizado com sucesso"
+          },
+          "400": {
+            "description": "Erro na requisição"
+          }
+        }
+      }
+    },
+    "/transfers": {
+      "post": {
+        "summary": "Realizar transferência",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Transfer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Transferência realizada com sucesso"
+          },
+          "400": {
+            "description": "Erro na requisição"
+          }
+        }
+      },
+      "get": {
+        "summary": "Obter todas as transferências",
+        "responses": {
+          "200": {
+            "description": "Lista de transferências"
+          },
+          "400": {
+            "description": "Erro na requisição"
+          }
+        }
+      }
+    },
+    "/auth/authenticate": {
+      "post": {
+        "summary": "Autenticar usuário",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Login"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Autenticação realizada com sucesso"
+          },
+          "400": {
+            "description": "Erro na requisição"
+          }
+        }
+      }
+    },
+    "/users": {
+      "get": {
+        "summary": "Obter todos os usuários",
+        "responses": {
+          "200": {
+            "description": "Lista de usuários"
+          },
+          "400": {
+            "description": "Erro na requisição"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "User": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "Login": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "Transfer": {
+      "type": "object",
+      "properties": {
+        "from": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}

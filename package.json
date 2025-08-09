@@ -1,0 +1,18 @@
+{
+  "name": "pgats_api",
+  "version": "1.0.0",
+  "description": "Esta API foi desenvolvida para fins educacionais, permitindo o aprendizado de testes e automação a nível de API. A aplicação é construída com Node.js e Express, utilizando um banco de dados em memória.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.1.0",
+    "swagger-ui-express": "^5.0.1"
+  }
+}
