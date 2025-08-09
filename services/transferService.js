@@ -6,7 +6,7 @@ function makeTransfer(from, to, amount) {
     const recipient = users.find(user => user.username === to);
 
     if (!sender || !recipient) {
-        throw new Error('Usuário remetente ou destinatário não encontrado');
+        throw new Error('Usuário remetente ou destinatário, não encontrado');
     }
 
     const isFavorite = sender.favorites.includes(to);
