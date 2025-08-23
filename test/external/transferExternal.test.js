@@ -3,7 +3,7 @@ const { expect } = require("chai");
 
 describe("Transfer Controller", () => {
   describe("POST /transfers", () => {
-    it("Quando informoremetente e destinatario inexistentes recebe 400", async () => {
+    it("Quando informo remetente e destinatário inexistentes recebe 400", async () => {
       const resposta = await request("http://localhost:3000")
         .post("/transfers")
         .send({
