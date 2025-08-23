@@ -30,10 +30,31 @@ describe("Transfer Controller", () => {
         amount: 100,
       });
       expect(resposta.status).to.equal(400);
-      expect(resposta.body).to.have.property(
-        "error",
-        "Usuário remetente ou destinatário não encontrado"
-      );
+      expect(resposta.body).to.have.property("error", "Usuário remetente ou destinatário não encontrado");
+      sinon.restore();
+    });
+
+    it('Usando Mocks: Quando iformo valores válidos eu tenho sucesso com 201 CREATED', async () => {
+      const transferServiceMock.returns({
+        from: "Ricardo",
+        to: "Paulo",
+        amount: 100,
+        date: new Date().toISOString()
+      });
+
+      const resposta = await request(app)
+      .post('/transfers')
+      .send({
+        from: "Ricardo",
+        to: "Paulo",
+        amount: 100
+      })
+
+      expect(resposta.status).to.equal(201);
+      expect(resposta.body).to.have.property('from', 'Ricardo');
+      expect(resposta.body).to.have.property('to', 'Paulo');
+      expect(resposta.body).to.have.property('amount', 100);
+
       sinon.restore();
     });
   });
